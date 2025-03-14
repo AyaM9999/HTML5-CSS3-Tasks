@@ -1,0 +1,67 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Grid Areas</title>  
+</head>  
+<style>  
+    .parent{  
+        display: grid;  
+        grid-template-columns: repeat(3,1fr);  
+        grid-template-rows: 10vh auto auto 10vh;  
+        gap: 5px;  
+        grid-template-areas:   
+        "head head head"  
+        "nav main side"  
+        "nav main side"  
+        "foot foot foot";  
+        text-align: center;  
+        width: 100vw;  
+        min-height: 100vh;  
+    }  
+    .header{  
+        grid-area: head;  
+        background-color: rgb(54, 93, 153);  
+    }  
+    .nav{  
+        grid-area: nav;  
+        background-color: tomato;  
+    }  
+    .main{  
+        grid-area: main;  
+        background-color: rgb(100, 155, 100);  
+    }  
+    .sidebar{  
+        grid-area: side;  
+        background-color: tomato;  
+    }  
+    .footer{  
+        grid-area: foot;  
+        background-color: rgb(54, 93, 153);  
+    }  
+
+    
+    @media (max-width: 768px) {  
+        .parent {  
+            grid-template-columns: 1fr; 
+            grid-template-rows: 10vh auto auto auto 10vh;  
+            grid-template-areas:   
+            "head"  
+            "nav"  
+            "main"  
+            "side"  
+            "foot";  
+        }  
+    }  
+</style>  
+<body>  
+    <section class="parent">  
+       <div class="header">Header</div>  
+       <div class="nav">NavBar</div>  
+        <div class="main">Main</div>  
+        <div class="sidebar">SideBar</div>  
+        <div class="footer">&copy;Copy Right Grid Task</div>  
+    </section>  
+</body>  
+</html>  

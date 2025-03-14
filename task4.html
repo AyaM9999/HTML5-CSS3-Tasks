@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Bar</title>
+    <style>
+        .colorDiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="range_conatiner" style="color: red;">
+        <label>Red: <span id="redValue" class="color-value">0</span></label>
+        <input type="range" min="0" max="255" value="0" id="red">
+    </section>
+
+    <section class="range_conatiner" style="color: green;">
+        <label>Green: <span id="greenValue" class="color-value">0</span></label>
+        <input type="range" min="0" max="255" value="0" id="green">
+    </section>
+
+    <section class="range_conatiner" style="color: blue;">
+        <label>Blue: <span id="blueValue" class="color-value">0</span></label>
+        <input type="range" min="0" max="255" value="0" id="blue">
+    </section>
+
+    <section class="color-conatiner">
+        <div class="colorDiv"></div>
+    </section>
+
+    <script>
+        const redRange = document.querySelector("#red");
+        const greenRange = document.querySelector("#green");
+        const blueRange = document.querySelector("#blue");
+
+        const redValue = document.querySelector("#redValue");
+        const greenValue = document.querySelector("#greenValue");
+        const blueValue = document.querySelector("#blueValue");
+
+        const colorDiv = document.querySelector(".colorDiv");
+
+        function updateColor() {
+            let red = redRange.value;
+            let green = greenRange.value;
+            let blue = blueRange.value;
+
+            redValue.textContent = red;
+            greenValue.textContent = green;
+            blueValue.textContent = blue;
+
+            colorDiv.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        // Add event listeners
+        redRange.addEventListener("input", updateColor);
+        greenRange.addEventListener("input", updateColor);
+        blueRange.addEventListener("input", updateColor);
+
+       //update color when loading window
+        updateColor();
+    </script>
+</body>
+</html>

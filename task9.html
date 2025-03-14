@@ -1,0 +1,125 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Flex</title>  
+    <style>  
+        * {  
+            padding: 0;  
+            margin: 0;  
+            box-sizing: border-box;  
+        }  
+
+        body {  
+            display: flex;  
+            flex-direction: column;  
+            height: 100vh;  
+        }  
+
+        header, footer {  
+            background-color: tomato;  
+            color: white;  
+            text-align: center;  
+            padding: 10px;  
+        }  
+
+        header {  
+            height: 10vh;  
+        }  
+
+        footer {  
+            height: 10vh;  
+            position: relative;  
+            width: 100%;  
+        }  
+
+        header ul {  
+            display: flex;  
+            list-style: none;  
+            justify-content: space-around;  
+        }  
+        a{  
+            text-decoration: none;  
+            color: white;  
+        }  
+
+        .main {  
+            display: flex;  
+            flex: 1;  
+            height: 80vh;  
+            padding: 10px;  
+        }  
+
+        section {  
+            flex: 1;  
+            display: flex;  
+            justify-content: space-around;  
+            align-items: center;  
+            background-color: #f4f4f4;  
+            padding: 20px;  
+        }  
+
+        section div {  
+            background-color: white;  
+            padding: 20px;  
+            margin: 10px;  
+            border-radius: 5px;  
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  
+        }  
+
+        /* Media Query for screens 768px or less */  
+        @media (max-width: 768px) {  
+            .main {  
+                padding: 5px;  
+            }  
+
+            section {  
+                flex-direction: column;  
+                align-items: center; 
+            }  
+
+            section div {  
+                width: 80%; 
+                margin: 10px 0; 
+                text-align: center; }
+
+            header ul {  
+                flex-direction: column; 
+                align-items: center; 
+            }  
+
+            header ul li {  
+                margin: 5px 0; 
+            }  
+        }  
+    </style>  
+</head>  
+<body>  
+    
+    <header>  
+        <ul>  
+            <li><a href="#Home">Home</a></li>  
+            <li><a href="#Services">Services</a></li>  
+            <li><a href="#Conatct">Contact us</a></li>  
+            <li><a href="#About">About</a></li>  
+        </ul>  
+    </header>  
+
+    <main class="main">  
+        <section>  
+            <div>   
+                <h3>Flexbox</h3>  
+                <p>Flex is short for the Flexible Box Layout module.Flexbox is a layout method for arranging items in rows or columns.  
+                Flexbox makes it easier to design a flexible responsive layout structure, without using float or positioning.</p> </div>  
+            <div>  
+                <h3>Animation </h3>  
+                <p>CSS animations allow you to animate HTML elements without using JavaScript. By defining keyframes and animation properties, you can create smooth transitions and effects.</p>  
+            </div>  
+        </section>  
+    </main>  
+
+    <footer>&copy;CopyRight FLEX  2025</footer>  
+
+</body>  
+</html>  

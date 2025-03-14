@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Example</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header, footer {
+            background-color: rgb(54, 93, 153);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-weight: bolder;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        aside {
+            background-color: tomato;
+            width: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            padding: 20px;
+        }
+
+        main {
+            background-color: rgb(100, 155, 100);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            padding: 20px;
+        }
+
+        footer {
+            height: 10vh;
+        }
+
+        @media (max-width: 768px) {  
+            .container {  
+                flex-direction: column; /* Stack the content vertically */  
+            }  
+
+            aside {  
+                width: 100%;  
+                padding: 10px; 
+                text-align: center; 
+            }  
+
+            main {  
+                width: 100%;  
+                padding: 10px; 
+                text-align: center; 
+            }  
+        }
+    </style>
+</head>
+<body>
+    
+    <header><h3>Navigation Bar</h3></header>
+
+    <div class="container">
+        <aside> <h3> Left Sidebar </h3></aside>
+        <main>
+            <section>Main Content</section>
+        </main>
+        <aside> <h3> Right Sidebar  </h3></aside>
+    </div>
+
+    <footer>&copy; Copyright  FLEX 2025</footer>
+
+</body>
+</html>

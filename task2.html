@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="task2.css">
+    
+</head>
+<body>
+    <form id="registrationForm">
+        <table>
+            <tr>
+                <td><label>Email:</label></td>
+                <td>
+                    <input type="email" name="Email" id="Email">
+                    <div id="emailError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td>
+                    <input type="password" name="password" id="password">
+                    <div id="passwordError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="rememberMe" id="RememberBox"> Remember Me
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button id="submitbtn" type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        const form = document.querySelector("#registrationForm");
+        const emailInput = document.querySelector("#Email");
+        const passwordInput = document.querySelector("#password");
+        const rememberCheckbox = document.querySelector("#RememberBox");
+        const emailError = document.querySelector("#emailError");
+        const passwordError = document.querySelector("#passwordError");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            // Clear previous error messages
+            emailError.textContent = "";
+            passwordError.textContent = "";
+
+            let isValid = true;
+
+            if (!validateEmail(email)) {
+                emailError.textContent = "Invalid email. Please enter a valid email address (e.g., example@example.com).";
+                isValid = false;
+            }
+
+            if (!validatePassword(password)) {
+                passwordError.textContent = "Invalid password. Password must contain:\n- At least one lowercase letter\n- At least one uppercase letter\n- At least one digit\n- At least one special character (!@#$%^&*)\n- Be at least 8 characters long";
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Check if the user already exists
+                const users = JSON.parse(localStorage.getItem("usersaccounts")) || [];
+                const userExists = users.some(user => user.email === email);
+
+                if (userExists) {
+                    emailError.textContent = "User already exists. Please use a different email.";
+                } else {
+                    if (rememberCheckbox.checked) {
+                        // Save data to localStorage
+                        const user = { email, password };
+                        users.push(user);
+                        localStorage.setItem("usersaccounts", JSON.stringify(users));
+                        alert("Data saved to local storage!");
+                    } else {
+                        // Clear data from localStorage if "Remember Me" is not checked
+                        localStorage.removeItem("usersaccounts");
+                        alert("Data cleared from local storage!");
+                    }
+                    alert("Registration successful!");
+                }
+            }
+        });
+
+        // Load saved data when the page loads
+        window.addEventListener("load", function() {
+            const users = JSON.parse(localStorage.getItem("usersaccounts")) || [];
+            if (users.length > 0) {
+                const lastUser = users[users.length - 1]; // Load the last user
+                emailInput.value = lastUser.email;
+                passwordInput.value = lastUser.password;
+                rememberCheckbox.checked = true;
+            }
+        });
+
+        function validateEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailPattern.test(email);
+        }
+
+        function validatePassword(password) {
+            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+            return passwordPattern.test(password);
+        }
+    </script>
+</body>
+</html>

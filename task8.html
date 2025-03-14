@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: white;
+            gap: 50px;
+        }
+
+        .mainClass {
+            background-color: black;
+            width: 100px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 15px;
+            padding: 16px;
+        }
+
+        .light {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .redSign { background: red; }
+        .yellowSign { background: yellow; }
+        .greenSign { background: green; cursor: pointer; }
+
+      
+        .greenSign:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+        }
+
+       
+        .man {
+            width: 350px;
+            position: relative;
+            animation: man 3s linear infinite alternate-reverse ;
+            animation-play-state: stop;
+        }
+
+        
+        @keyframes man {
+            0% {
+                transform: translateX(0) scaleX(1);
+            }
+            100% {
+                transform: translateX(300px) scaleX(-1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+ 
+    <div class="mainClass">
+        <div class="light greenSign"></div>
+        <div class="light yellowSign"></div>
+        <div class="light redSign"></div>
+    </div>
+
+    
+    <img src="Imgs/man.gif" class="man">
+
+    <script>
+        let greenSign = document.querySelector(".greenSign");
+        let man = document.querySelector(".man");
+
+        greenSign.addEventListener("mouseenter", function() {
+            man.style.animationPlayState = "running";
+        });
+
+        greenSign.addEventListener("mouseleave", function() {
+            man.style.animationPlayState = "stop";
+        });
+    </script>
+
+</body>
+</html>

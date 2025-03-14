@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    background-color: cadetblue;
+    padding: 10px 20px;
+}
+
+
+.navClass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.navClass img {
+    width: 50px; 
+    height: auto;
+}
+
+
+.list1 {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.list1 li {
+    display: inline;
+}
+
+.list1 a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+}
+
+.mainsection {
+    flex: 1;
+    text-align: justify;
+    padding: 15px;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: rgb(206, 194, 216);
+}
+
+.asideClass {
+    width: 300px;
+    background-color: cadetblue;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 20px;
+    text-align: center;}
+
+.asideSection img {
+    width: 80%; 
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px; 
+}
+
+.asideSection h3 {
+    color: white;
+    text-align: center;
+}
+
+.asideSection ul {
+    list-style-type: square;
+    padding: 0;
+    margin: 0;
+    text-align: left; 
+}
+
+.asideSection li {
+    margin-bottom: 10px;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: cadetblue;
+    color: white;
+}
+
+
+.section4 div {
+    display: inline-block;
+    width: 25vh;
+    height: 100px;
+    background-color: lightgray;
+    margin: 10px;
+    text-align: center;
+    line-height: 15vh;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 3px solid cadetblue;
+}
+
+.section4 {
+    text-align: center;
+    margin: 20px 0;
+}
+

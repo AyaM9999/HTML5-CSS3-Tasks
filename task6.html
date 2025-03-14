@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Filters</title>
+     <link rel="stylesheet" href="task6.css">
+</head>
+<body>
+
+    <header>
+        Image Filter Application
+    </header>
+
+    <main>
+        <section>
+            <img src="js5.jpg" id="img">
+            <div>
+                <input type="submit" value="Blur" id="blur">
+                <input type="submit" value="Brightness" id="Brightness">
+                <input type="submit" value="Contrast" id="Contrast">
+                <input type="submit" value="Grayscale" id="grayScale">
+                <input type="submit" value="Opacity" id="opacity">
+                <input type="submit" value="Reset" id="reset">
+            </div>
+        </section>
+    </main>
+
+
+
+    <script>
+   
+        let img = document.querySelector("#img");
+        let blurBtn = document.querySelector("#blur");
+        let brightnessBtn = document.querySelector("#Brightness");
+        let contrastBtn = document.querySelector("#Contrast");
+        let grayScaleBtn = document.querySelector("#grayScale");
+        let opacityBtn = document.querySelector("#opacity");
+        let resetBtn = document.querySelector("#reset");
+
+   
+        blurBtn.addEventListener("click", function() {
+            img.style.filter = "blur(5px)";
+        });
+
+        brightnessBtn.addEventListener("click", function() {
+            img.style.filter = "brightness(150%)";
+        });
+
+        contrastBtn.addEventListener("click", function() {
+            img.style.filter = "contrast(200%)";
+        });
+
+        grayScaleBtn.addEventListener("click", function() {
+            img.style.filter = "grayscale(100%)";
+        });
+
+        opacityBtn.addEventListener("click", function() {
+            img.style.filter = "opacity(50%)";
+        });
+
+        resetBtn.addEventListener("click", function() {
+            img.style.filter = "none"; 
+        });
+    </script>
+
+</body>
+</html>
